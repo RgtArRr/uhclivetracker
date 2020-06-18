@@ -51,12 +51,12 @@ export default class Players extends React.Component {
             let health = data.health;
             let armor_empty = (10 - Math.round(armor / 2));
             let health_empty = (10 - Math.round(health / 2));
-            console.log(data.isNether, data.nickname);
-            console.log((data.isNether ? 'nether' : 'overworld'));
             return (
                 <div className="panel panel-default" key={'player' + j}
                      onDoubleClick={() => {this.props.onPlayerClick(data);}}>
-                    <div className={'panel-heading ' + (data.isNether ? 'nether' : 'overworld')}>{data.nickname}</div>
+                    <div className={'panel-heading '}>{data.nickname}
+                        <span className={'nether'}>En el Nether</span>
+                    </div>
                     <div className="panel-body">
                         <img style={{float: 'left'}} src={`${skin_url}/${data.nickname}/80`} alt=""/>
                         {new Array(Math.round(armor / 2)).fill(0).map((i, j) => {

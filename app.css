@@ -57,8 +57,14 @@ body {
     padding: 0px;
 }
 
-.panel-default{
+.panel-default {
     min-width: 320px;
+}
+
+.nether {
+    float: right;
+    background: url("static/netherrack.png");
+    background-size: 300px;
 }
 
 

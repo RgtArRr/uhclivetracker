@@ -20,9 +20,6 @@ export default class Pantalla extends React.Component {
     };
 
     render () {
-        //1604-802
-        //670-802
-        //670+53
         return (
             <div className={'row'}>
                 <div className={'col-md-3'}>
@@ -38,7 +35,7 @@ export default class Pantalla extends React.Component {
                     {(this.state.channel !== ''
                         ? <ReactTwitchEmbedVideo height={window.innerHeight - 20} width={'100%'}
                                                  channel={this.state.channel}/>
-                        : <div style={{height: window.innerHeight - 20}}>Seleccione un player</div>)}
+                        : <div style={{height: window.innerHeight - 20, color: 'white'}}>Seleccione un player</div>)}
                 </div>
             </div>
         );
