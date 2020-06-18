@@ -63,8 +63,7 @@ body {
 
 .nether {
     float: right;
-    background: url("static/netherrack.png");
-    background-size: 300px;
+    font-size: 14px;
 }
 
 
