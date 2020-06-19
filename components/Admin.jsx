@@ -5,63 +5,9 @@ import Form from './Form';
 
 let db = new PouchDB(db_url);
 
-const schema = {
-    title: 'Player',
-    type: 'object',
-    required: ['X', 'Z', 'isNether', 'show', 'health', 'armor', 'absorption'],
-    properties: {
-        show: {type: 'boolean', title: 'Mostrar en la página', default: true},
-        armor: {
-            title: 'Armadura',
-            type: 'integer',
-            minimum: 0,
-            maximum: 20,
-        },
-        health: {
-            title: 'Corazones',
-            type: 'integer',
-            minimum: 0,
-            maximum: 20,
-        },
-        absorption: {
-            title: 'Corazones dorados',
-            type: 'integer',
-            default: 0,
-            minimum: 0,
-            maximum: 20,
-        },
-        hotbar: {
-            type: 'array',
-            title: 'HotBar',
-            items: {
-                type: 'string',
-                default: 'empty',
-                examples: items,
-            },
-        },
-        isNether: {type: 'boolean', title: 'En el Nether', default: false},
-        isDeath: {type: 'boolean', title: 'Esta muerto', default: false},
-        X: {type: 'integer', title: 'Coord X', default: 0},
-        Z: {type: 'integer', title: 'Coord Z', default: 0},
-    },
-};
-
-const uiSchema = {
-    health: {
-        'ui:widget': 'range',
-    },
-    armor: {
-        'ui:widget': 'range',
-    },
-    absorption: {
-        'ui:widget': 'range',
-    },
-};
-
-export default class Mapa extends React.Component {
+export default class Admin extends React.Component {
     constructor (props) {
         super(props);
-        this.ref = React.createRef();
         this.state = {select: '', data: []};
     }
 
@@ -95,18 +41,16 @@ export default class Mapa extends React.Component {
     handleSelectChange = (event) => {
         let self = this;
         let state = self.state;
-        console.log('select ');
         state.select = event.target.value === '0' ? null : event.target.value;
         self.setState(state);
     };
 
-    onSubmit = (event) => {
-        let data = event.formData;
+    onSubmit = (formData) => {
         let _id = this.state.select;
         db.get(_id).then(function (doc) {
-            data._rev = doc._rev;
-            return db.put(data);
-        }).then(function (response) {
+            formData._rev = doc._rev;
+            return db.put(formData);
+        }).then(function () {
             console.log('update');
         }).catch(function (err) {
             console.log(err);
