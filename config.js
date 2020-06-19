@@ -1,6 +1,6 @@
 const db_url = 'https://admin:123456@uhclivetracker.ml:6984/uhclive';
-const skin_url = 'https://minotar.net/bust';
-const start = 1592257125101;//milliseconds
+const skin_url = 'https://crafatar.com/renders/body';
+const start = 1592533021486;//milliseconds
 
 const items = [
     'acacia_boat',

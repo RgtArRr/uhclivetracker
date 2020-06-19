@@ -62,7 +62,7 @@ export default class Players extends React.Component {
                         </span>
                     </div>
                     <div className="panel-body">
-                        <img style={{float: 'left'}} src={`${skin_url}/${data.nickname}/80`} alt=""/>
+                        <img style={{float: 'left', paddingRight: "5px"}} src={`${skin_url}/${data._id}?scale=2`} alt=""/>
                         {new Array(Math.round(armor / 2)).fill(0).map((i, j) => {
                             armor = armor - 2;
                             return <img key={'armor_' + j} alt={'armor'} className={'stats'}
