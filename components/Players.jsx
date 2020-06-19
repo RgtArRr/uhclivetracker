@@ -73,6 +73,12 @@ export default class Players extends React.Component {
                                         src={`static/gui/armor_empty.png`}/>;
                         })}
                         <br/>
+                        {new Array(Math.round(health_golden / 2)).fill(0).map((i, j) => {
+                            health_golden = health_golden - 2;
+                            return <img key={'health_golden' + j} alt={'healt_golden'} className={'stats'}
+                                        src={`static/gui/heart_golden_${health_golden < 0 ? 'half' : 'full'}.png`}/>;
+                        })}
+                        <br/>
                         {new Array(Math.round(health / 2)).fill(0).map((i, j) => {
                             health = health - 2;
                             return <img key={'health_' + j} alt={'health'} className={'stats'}
@@ -82,12 +88,6 @@ export default class Players extends React.Component {
                             return <img key={'health_empty' + j} alt={'healt'} className={'stats'}
                                         src={`static/gui/hardcore_heart_empty.png`}/>;
                         })}
-                        {new Array(Math.round(health_golden / 2)).fill(0).map((i, j) => {
-                            health_golden = health_golden - 2;
-                            return <img key={'health_golden' + j} alt={'healt_golden'} className={'stats'}
-                                        src={`static/gui/heart_golden_${health_golden < 0 ? 'half' : 'full'}.png`}/>;
-                        })}
-
                     </div>
                     <div className="panel-footer">
                         <div className="inventory">
