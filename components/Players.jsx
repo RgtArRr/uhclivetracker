@@ -49,6 +49,7 @@ export default class Players extends React.Component {
             }
             let armor = data.armor;
             let health = data.health;
+            let health_golden = data.absorption;
             let armor_empty = (10 - Math.round(armor / 2));
             let health_empty = (10 - Math.round(health / 2));
             return (
@@ -80,6 +81,11 @@ export default class Players extends React.Component {
                         {new Array(health_empty).fill(0).map((i, j) => {
                             return <img key={'health_empty' + j} alt={'healt'} className={'stats'}
                                         src={`static/gui/hardcore_heart_empty.png`}/>;
+                        })}
+                        {new Array(Math.round(health_golden / 2)).fill(0).map((i, j) => {
+                            health_golden = health_golden - 2;
+                            return <img key={'health_golden' + j} alt={'healt_golden'} className={'stats'}
+                                        src={`static/gui/heart_golden_${health_golden < 0 ? 'half' : 'full'}.png`}/>;
                         })}
 
                     </div>

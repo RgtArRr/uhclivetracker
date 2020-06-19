@@ -8,7 +8,7 @@ let db = new PouchDB(db_url);
 const schema = {
     title: 'Player',
     type: 'object',
-    required: ['X', 'Z', 'isNether', 'show', 'health'],
+    required: ['X', 'Z', 'isNether', 'show', 'health', 'armor', 'absorption'],
     properties: {
         show: {type: 'boolean', title: 'Mostrar en la página', default: true},
         armor: {
@@ -20,6 +20,13 @@ const schema = {
         health: {
             title: 'Corazones',
             type: 'integer',
+            minimum: 0,
+            maximum: 20,
+        },
+        absorption: {
+            title: 'Corazones dorados',
+            type: 'integer',
+            default: 0,
             minimum: 0,
             maximum: 20,
         },
@@ -42,7 +49,11 @@ const schema = {
 const uiSchema = {
     health: {
         'ui:widget': 'range',
-    }, armor: {
+    },
+    armor: {
+        'ui:widget': 'range',
+    },
+    absorption: {
         'ui:widget': 'range',
     },
 };
