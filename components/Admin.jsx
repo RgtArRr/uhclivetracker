@@ -113,8 +113,8 @@ export default class Mapa extends React.Component {
 
     render () {
         return (
-            <div>
-                <div>
+            <div className="formulario-admin">
+                <div className="d-block">
                     <select key={'select'} value={this.state.select}
                             onChange={this.handleSelectChange}>
                         <option value="">-=Seleccionar=-</option>
@@ -123,7 +123,7 @@ export default class Mapa extends React.Component {
                         })}
                     </select>
                 </div>
-                <div className={'col-md-4 bg-success'}>
+                <div className={'formulario-datos'}>
                     <Form schema={schema} uiSchema={uiSchema}
                           onSubmit={this.onSubmit}
                           onError={(e) => {console.log(e);}}
