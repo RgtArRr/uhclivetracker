@@ -8,6 +8,12 @@
     src: url(static/8-BitMadness.ttf);
 }
 
+.col-md-9 > .seleccion-player{
+    font-family: Minecraft;
+    src: url(static/Minecrafter.Alt.ttf);
+    padding-top: 30%;
+    font-size: x-large;
+}
 
 body {
     background-image: url("static/bg-wool-dark.png");
@@ -44,6 +50,8 @@ body {
     left: 0;
     z-index: 1000;
     display: block;
+    padding-left: 1%;
+    padding-right: 1%;
     overflow-x: hidden;
     overflow-y: auto;
 }
