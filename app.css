@@ -10,7 +10,6 @@
 
 .col-md-9 > .seleccion-player{
     font-family: Minecraft;
-    src: url(static/Minecrafter.Alt.ttf);
     padding-top: 30%;
     font-size: x-large;
 }
@@ -61,13 +60,11 @@ body {
 }
 
 .panel-default > .panel-heading {
-    background-color: #FF3A51;
+    background: rgb(42,67,61);
+    background: linear-gradient(270deg, rgba(42,67,61,1) 0%, rgba(0,125,92,1) 0%, rgba(31,31,31,1) 35%);
     font-family: BitMadness;
     font-size: 28px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    background-size: 100px !important;
-    background-position-y: 300px !important;
-    background-repeat: repeat !important;
     color: white;
 }
 
