@@ -22,16 +22,15 @@ export default class Pantalla extends React.Component {
     render () {
         return (
             <div className={'row'}>
-                <div className={'col-md-3'}>
+                <div className={'col-md-3 sidebar'}>
                     <div className="page-header mc">
                         <Clock/>
                     </div>
-                    <div className="list-group"
-                         style={{height: (window.innerHeight - 154 - 11) + 'px', overflow: 'auto'}}>
+                    <div className="list-group">
                         <Players onPlayerClick={this.onPlayerClick}/>
                     </div>
                 </div>
-                <div className={'col-md-9'}>
+                <div className={'col-md-9  col-md-offset-3'}>
                     {(this.state.channel !== ''
                         ? <ReactTwitchEmbedVideo height={window.innerHeight - 20} width={'100%'}
                                                  channel={this.state.channel}/>
