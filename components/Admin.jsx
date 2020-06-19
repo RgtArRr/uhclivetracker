@@ -1,7 +1,7 @@
 import React from 'react';
 import PouchDB from 'pouchdb';
 import { db_url, items } from '../config';
-import Form from '@rjsf/core';
+import Form from './Form';
 
 let db = new PouchDB(db_url);
 
@@ -95,9 +95,11 @@ export default class Mapa extends React.Component {
     handleSelectChange = (event) => {
         let self = this;
         let state = self.state;
+        console.log('select ');
         state.select = event.target.value === '0' ? null : event.target.value;
         self.setState(state);
     };
+
     onSubmit = (event) => {
         let data = event.formData;
         let _id = this.state.select;
@@ -113,8 +115,8 @@ export default class Mapa extends React.Component {
 
     render () {
         return (
-            <div className="formulario-admin">
-                <div className="d-block">
+            <div className="row">
+                <div className="col-md-3">
                     <select key={'select'} value={this.state.select}
                             onChange={this.handleSelectChange}>
                         <option value="">-=Seleccionar=-</option>
@@ -122,13 +124,8 @@ export default class Mapa extends React.Component {
                             return <option key={j} value={i._id}>{i.nickname}</option>;
                         })}
                     </select>
-                </div>
-                <div className={'formulario-datos'}>
-                    <Form schema={schema} uiSchema={uiSchema}
-                          onSubmit={this.onSubmit}
-                          onError={(e) => {console.log(e);}}
-                          formData={this.state.data.find((e) => {return e._id === this.state.select;})}
-                          disabled={this.state.select === ''}/>
+                    <Form onSubmit={this.onSubmit} disabled={this.state.select === ''}
+                          formData={this.state.data.find((e) => {return e._id === this.state.select;})}/>
                 </div>
             </div>
         );

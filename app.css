@@ -8,7 +8,7 @@
     src: url(static/8-BitMadness.ttf);
 }
 
-.col-md-9 > .seleccion-player{
+.col-md-9 > .seleccion-player {
     font-family: Minecraft;
     padding-top: 30%;
     font-size: x-large;
@@ -60,8 +60,8 @@ body {
 }
 
 .panel-default > .panel-heading {
-    background: rgb(42,67,61);
-    background: linear-gradient(270deg, rgba(42,67,61,1) 0%, rgba(0,125,92,1) 0%, rgba(31,31,31,1) 35%);
+    background: rgb(42, 67, 61);
+    background: linear-gradient(270deg, rgba(42, 67, 61, 1) 0%, rgba(0, 125, 92, 1) 0%, rgba(31, 31, 31, 1) 35%);
     font-family: BitMadness;
     font-size: 28px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -156,22 +156,14 @@ h1 {
     background: #555;
 }
 
-select{
-    margin-left: 25%;
-    margin-right: 25%;
+select {
     background-color: #C0D09C;
-    height: 50px;
+    height: 30px;
     font-family: BitMadness;
-    font-size: xx-large;
+    font-size: 20px;
 }
 
-.formulario-datos{
-    margin-left: 25%;
-    margin-right: 25%;
-    padding-left: 5%;
-    padding-right: 5%;
-    background-color: #C9C9C9;    
+.formulario-datos {
     font-family: BitMadness;
-    font-size: xx-large;
 }
 
