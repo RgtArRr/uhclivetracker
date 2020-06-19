@@ -25,6 +25,14 @@ body {
     color: white;
 }
 
+.isnether {
+    float: right;
+}
+
+.isnether > img {
+    width: 40px;
+}
+
 .panel-body {
     padding: 0px;
 }
@@ -40,15 +48,6 @@ body {
     color: white;
 }
 
-.panel-default > .nether {
-    background: url(static/netherrack.png);
-}
-
-.panel-default > .overworld {
-    background: url(static/grass.png);
-}
-
-
 .panel-heading {
     padding: 2px 15px;
 }
@@ -60,12 +59,6 @@ body {
 .panel-default {
     min-width: 320px;
 }
-
-.nether {
-    float: right;
-    font-size: 14px;
-}
-
 
 /*hotbar*/
 .inventory {

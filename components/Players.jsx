@@ -55,7 +55,10 @@ export default class Players extends React.Component {
                 <div className="panel panel-default" key={'player' + j}
                      onDoubleClick={() => {this.props.onPlayerClick(data);}}>
                     <div className={'panel-heading '}>{data.nickname}
-                        <span className={'nether'}>En el Nether</span>
+                        <span className={'isnether'}
+                              title={data.isNether ? 'Esta en el nether' : 'Esta en el overworld'}>
+                            <img src={`static/gui/${data.isNether ? 'nether' : 'overworld'}.png`} alt=""/>
+                        </span>
                     </div>
                     <div className="panel-body">
                         <img style={{float: 'left'}} src={`${skin_url}/${data.nickname}/80`} alt=""/>
