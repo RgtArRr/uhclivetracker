@@ -25,7 +25,7 @@ export default class Form extends React.Component {
     armorClick = (slot) => {
         let state = this.state;
         state.armor_slot.slot = slot;
-        let temp = this.state.data.armor_inventory.find((e) => {return e.slot == slot;});
+        let temp = this.state.data.armor_inventory.find((e) => {return e.slot === slot;});
         if (temp) {
             state.armor_slot.name = temp.name;
             state.armor_slot.desc = temp.desc;
@@ -38,23 +38,23 @@ export default class Form extends React.Component {
 
     savearmor = (e) => {
         e.preventDefault();
-        let found = false;
         let data = {
             slot: this.state.armor_slot.slot,
             name: this.state.armor_slot.name,
             desc: this.state.armor_slot.desc,
         };
-        let temp = this.state.data.armor_inventory.map((i) => {
-            if (i.slot === this.state.armor_slot.slot) {
-                found = true;
-                i = data;
+        let slot = this.state.data.armor_inventory.findIndex((ele) => {return ele.slot === data.slot;});
+        if (slot !== -1) {
+            if (data.name !== '') {
+                this.state.data.armor_inventory[slot] = data;
+            } else {
+                this.state.data.armor_inventory.splice(slot, 1);
             }
-            return i;
-        });
-        if (!found) {
-            temp.push(data);
+        } else {
+            if (data.name !== '') {
+                this.state.data.armor_inventory.push(data);
+            }
         }
-        this.state.data.armor_inventory = temp;
         this.state.armor_slot = {slot: null, name: '', desc: ''};
         this.setState(this.state);
     };
@@ -77,24 +77,24 @@ export default class Form extends React.Component {
 
     savehotbar = (e) => {
         e.preventDefault();
-        let found = false;
         let data = {
             slot: this.state.hotbar_slot.slot,
             name: this.state.hotbar_slot.name,
             amount: this.state.hotbar_slot.amount,
             desc: this.state.hotbar_slot.desc,
         };
-        let temp = this.state.data.hotbar.map((i, j) => {
-            if (i.slot === this.state.hotbar_slot.slot) {
-                found = true;
-                i = data;
+        let slot = this.state.data.hotbar.findIndex((ele) => {return ele.slot === data.slot;});
+        if (slot !== -1) {
+            if (data.name !== '') {
+                this.state.data.hotbar[slot] = data;
+            } else {
+                this.state.data.hotbar.splice(slot, 1);
             }
-            return i;
-        });
-        if (!found) {
-            temp.push(data);
+        } else {
+            if (data.name !== '') {
+                this.state.data.hotbar.push(data);
+            }
         }
-        this.state.data.hotbar = temp;
         this.state.hotbar_slot = {slot: null, name: '', amount: '', desc: ''};
         this.setState(this.state);
     };
@@ -173,7 +173,7 @@ export default class Form extends React.Component {
                             onChange={(e) => {
                                 this.state.data.isDeath = e.target.checked;
                                 this.setState(this.state);
-                            }}/> Muerto
+                            }}/> Ha Muerto
                     </label>
                 </div>
                 <div className="form-group">
