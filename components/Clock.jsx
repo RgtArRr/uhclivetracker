@@ -14,9 +14,7 @@ export default class Clock extends React.Component {
             let state = this.state;
             let now = new Date();
             let diff = now - start;
-            state.time = '';
             if (diff < 0) {
-                state.time = 'Tiempo estimado: ';
                 diff *= -1;
             }
 
@@ -29,7 +27,7 @@ export default class Clock extends React.Component {
             if (hours < 10) {hours = '0' + hours;}
             if (minutes < 10) {minutes = '0' + minutes;}
             if (seconds < 10) {seconds = '0' + seconds;}
-            state.time += hours + ':' + minutes + ':' + seconds;
+            state.time = hours + ':' + minutes + ':' + seconds;
 
             self.setState(state);
         }, 1000);

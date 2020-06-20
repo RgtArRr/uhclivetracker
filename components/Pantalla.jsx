@@ -1,10 +1,7 @@
 import React from 'react';
 import Players from './Players';
 import Clock from './Clock';
-import PouchDB from 'pouchdb';
 import ReactTwitchEmbedVideo from 'react-twitch-embed-video';
-
-import { db_url, start } from '../config';
 
 export default class Pantalla extends React.Component {
     constructor (props) {
@@ -34,7 +31,8 @@ export default class Pantalla extends React.Component {
                     {(this.state.channel !== ''
                         ? <ReactTwitchEmbedVideo height={window.innerHeight - 20} width={'100%'}
                                                  channel={this.state.channel}/>
-                        : <div className='seleccion-player' style={{height: window.innerHeight - 20, color: 'white'}}>Seleccione un player</div>)}
+                        : <div className='seleccion-player'
+                               style={{height: window.innerHeight - 20, color: 'white'}}>Seleccione un jugador</div>)}
                 </div>
             </div>
         );
