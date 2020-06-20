@@ -58,7 +58,7 @@ export default class Players extends React.Component {
             let leggings = data.armor_inventory.find((e) => {return e.slot === 'leggings';});
             let boots = data.armor_inventory.find((e) => {return e.slot === 'boots';});
             return (
-                <div className="panel panel-default" key={'player' + j}
+                <div className={'panel panel-default ' + (data.isDeath ? 'isDeath' : '')} key={'player' + j}
                      onDoubleClick={() => {this.props.onPlayerClick(data);}}>
                     <div className={'panel-heading '}>{data.nickname}
                         <span className={'isnether'}
