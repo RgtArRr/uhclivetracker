@@ -70,7 +70,6 @@ body {
     font-size: 28px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     color: white;
-    user-select: none;
 }
 
 .panel-heading {
@@ -83,6 +82,7 @@ body {
 
 .panel-default {
     min-width: 320px;
+    user-select: none;
 }
 
 /*hotbar*/
